@@ -53,13 +53,14 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
       // Editando el registro:
       objetoPaciente.id = paciente.id;
       // identificar cuál estamos modificando
-      const pacientesActualizados = pacientes.map(pacienteState => pacienteState.id === paciente.id ? objetoPaciente : pacienteState); // al darle al botón editar, se crea un nuevo objeto. Cuando identifica que el paciente creado es igual al de la parte del formulario, retorna el objeto nuevo; si no, retorna el paciente
-      
+      const pacientesActualizados = pacientes.map((pacienteState) =>
+        pacienteState.id === paciente.id ? objetoPaciente : pacienteState
+      ); // al darle al botón editar, se crea un nuevo objeto. Cuando identifica que el paciente creado es igual al de la parte del formulario, retorna el objeto nuevo; si no, retorna el paciente
+
       // actualizar el state con la nueva información
       setPacientes(pacientesActualizados);
       // cuando se edita el paciente, mantiene en el estado los datos anteriores, hay limpiar el estado:
       setPaciente({});
-
     } else {
       objetoPaciente.id = generarId();
       // Nuevo registro:
@@ -77,17 +78,15 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
   };
 
   return (
-    <div className="md:w-1/2 lg:w-2/5">
-      <h2 className="font-black text-3xL text-center mb-10">
-        Seguimiento Pacientes
-      </h2>
-      <p className="text-lg mt-5 text-center">
+    <div className="md:w-1/2 lg:w-2/5 mx-5">
+      <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
+      <p className="text-lg mt-5 text-center mb-10">
         Añade Pacientes y {""}
         <span className="text-indigo-600 font-bold">Adminístralos</span>
       </p>
 
       <form
-        className="bg-white shadow-md rounded-lg py-10 px-5 mb-10 MX-5"
+        className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
         onSubmit={handleSubmit}
       >
         {error && (
@@ -96,7 +95,10 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
           </Error>
         )}
         <div className="mb-5">
-          <label htmlFor="mascota" className="block text-gray-700 uppercase">
+          <label
+            htmlFor="mascota"
+            className="block text-gray-700 uppercase font-bold"
+          >
             Nombre Mascotas
           </label>
           <input
@@ -112,7 +114,7 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
         <div className="mb-5">
           <label
             htmlFor="propietario"
-            className="block text-gray-700 uppercase"
+            className="block text-gray-700 uppercase font-bold"
           >
             Nombre Propietario
           </label>
@@ -141,7 +143,10 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
         </div>
 
         <div className="mb-5">
-          <label htmlFor="alta" className="block text-gray-700 uppercase">
+          <label
+            htmlFor="alta"
+            className="block text-gray-700 uppercase font-bold"
+          >
             Alta
           </label>
           <input
@@ -154,7 +159,10 @@ const Form = ({ pacientes, setPacientes, paciente, setPaciente }) => {
         </div>
 
         <div className="mb-5">
-          <label htmlFor="sintomas" className="block text-gray-700 uppercase">
+          <label
+            htmlFor="sintomas"
+            className="block text-gray-700 uppercase font-bold"
+          >
             Nombre Propietario
           </label>
           <textarea
